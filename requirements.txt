@@ -1,9 +1,4 @@
-pickle
-numpy
-os
-sys
-pathlib
-scipy
-logging
-socket
-matplotlib
+numpy>=1.16.2
+pathlib>=1.0.1
+scipy>=1.2.1
+matplotlib>=3.0.3

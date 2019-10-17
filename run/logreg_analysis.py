@@ -15,27 +15,27 @@ from modules.ai.preprocessing import normalize_samples
 
 ###############################################################################
 
-__DATA_DIR = os.path.join(get_proj_path(), 'datasets/clean/')
+__DATA_DIR = os.path.join(get_proj_path(), 'datasets/gen-one/clean/')
 
 __LEARN_RATE = 1  # Set the learning rate for gradient descent
-__MAX_ITER = 100000  # Set the number of iterations used to train
+__MAX_ITER = 10000  # Set the number of iterations used to train
 
 ###############################################################################
 
 # Load the training data, labels, and metadata
-train_data = load_pickle(os.path.join(__DATA_DIR, 'gen-one',
+train_data = load_pickle(os.path.join(__DATA_DIR,
                                       'train_data.pickle'))
-train_labels = load_pickle(os.path.join(__DATA_DIR, 'gen-one',
+train_labels = load_pickle(os.path.join(__DATA_DIR,
                                         'train_labels.pickle'))
-train_md = load_pickle(os.path.join(__DATA_DIR, 'gen-one',
+train_md = load_pickle(os.path.join(__DATA_DIR,
                                     'train_md.pickle'))
 
 # Load the test data, labels, and metadata
-test_data = load_pickle(os.path.join(__DATA_DIR, 'gen-one',
+test_data = load_pickle(os.path.join(__DATA_DIR,
                                      'test_data.pickle'))
-test_labels = load_pickle(os.path.join(__DATA_DIR, 'gen-one',
+test_labels = load_pickle(os.path.join(__DATA_DIR,
                                        'test_labels.pickle'))
-test_md = load_pickle(os.path.join(__DATA_DIR, 'gen-one',
+test_md = load_pickle(os.path.join(__DATA_DIR,
                                    'test_md.pickle'))
 
 ###############################################################################
@@ -202,7 +202,7 @@ if __name__ == '__main__':
                                                       __LEARN_RATE))
 
     # The number of runs over which results will be averaged
-    n_runs = 10
+    n_runs = 100
 
     # Init lists for storing the metrics on the train/test sets at
     # each iteration

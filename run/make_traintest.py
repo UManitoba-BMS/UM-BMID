@@ -30,8 +30,8 @@ if __name__ == '__main__':
     logger = get_script_logger(__file__)  # Get logger
 
     # Load the dataset to be split and its metadata
-    fd_data = load_pickle(os.path.join(__DATA_DIR, 'fd_data_s11.pickle'))
-    metadata = load_pickle(os.path.join(__DATA_DIR, 'md_list_s11.pickle'))
+    fd_data = load_pickle(os.path.join(__DATA_DIR, 'fd_data_s11_emp.pickle'))
+    metadata = load_pickle(os.path.join(__DATA_DIR, 'md_list_s11_emp.pickle'))
     labels = get_class_labels(metadata)  # Get the class labels
 
     # Split into the train and test sets, and return the random seed

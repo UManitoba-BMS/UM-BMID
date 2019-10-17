@@ -102,7 +102,7 @@ if __name__ == '__main__':
              verticalalignment='center',
              bbox={'facecolor': 'w',
                    'alpha': 0.9})
-    plt.text(new_xs[1], 75,
+    plt.text(new_xs[1], 73,
              '(%s ' % acc[0] + r'$\mathdefault{\pm}$ ' + '%s)%%' % acc[1],
              size=24,
              color='k',
@@ -138,7 +138,7 @@ if __name__ == '__main__':
              verticalalignment='center',
              bbox={'facecolor': 'w',
                    'alpha': 0.9})
-    plt.text(simu_xs[1], 70,
+    plt.text(simu_xs[1], 80,
              '(%s ' % simu_acc[0] + r'$\mathdefault{\pm}$ ' + '%s)%%'
              % simu_acc[1],
              size=24,
