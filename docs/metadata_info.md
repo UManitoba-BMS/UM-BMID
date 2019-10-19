@@ -14,6 +14,7 @@ in each scan.
 | tum_rad | The radius of the tumor used in the scan, in centimeters. |
 | | |
 | tum_shape | The shape of the tumor in the scan. |
+| | |
 | tum_x | The x-position of the tumor, in centimeters, relative to the center of the imaging chamber.
 | | |
 | tum_y | The y-position of the tumor, in centimeters, relative to the center of the imaging chamber.
