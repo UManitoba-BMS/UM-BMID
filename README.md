@@ -80,6 +80,19 @@ in the project.
 
 ### Exploring the Dataset
 
+The best way to explore the dataset is to download the dataset from
+https://bit.ly/UM-bmid. The most important files for quickly exploring the
+dataset are in the `UM-BMID/scan-data/gen-one/simple-clean/` and
+`UM-BMID/scan-data/gen-two/simple-clean/` folders. These folders
+contain ready-to-use files (.pickle and .mat files). The raw S-parameter
+measurements from each scan comprise these files. No reference scan subtraction 
+was performed in the formation of these files.
+
+After downloading theses folders and placing them in the `../datasets/`
+folder in your local UM-BMID project directory, use the 
+`../run/simple_data_use_ex.py`  to explore loading and using the dataset
+and corresponding metadata.
+
 Two sample files for using the dataset are contained in the `/run/` folder:
 the `/run/dataUseEx.m` and `/run/data_use_ex.py` files. These files demonstrate
 how to import the clean dataset files, display the sinogram measured from

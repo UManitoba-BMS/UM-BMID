@@ -1,8 +1,8 @@
 *.pyc
 *__pycache__*
 .idea/*
-output/logs/*
 output/**/*.log
+output/.**
 *.swp
 *.DS_Store
 .project
