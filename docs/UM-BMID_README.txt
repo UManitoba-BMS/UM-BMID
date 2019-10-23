@@ -1,3 +1,4 @@
+
                         README - UM-BMID
 
                         Author: Tyson Reimer
@@ -63,8 +64,27 @@ The folder architecture is as follows:
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
-                        SECTION II: Getting Help
-                        ------------------------
+                        SECTION II: Suggested Use
+                        -------------------------
+
+The simplest way to start using UM-BMID is to download the files in:
+
+    /UM-BMID/scan-data/{gen-two, gen-one}/simple-clean/
+
+The data in gen-one is limited to 249 phantom scans, while gen-two will
+contain data from 1008 phantom scans at completion. We recommend using gen-two
+for this reason, and because of the more extensive metadata recorded for scans
+in gen-two.
+
+The data files in this folder contain the frequency-domain S-parameters
+before any reference-scan subtraction has been performed. The empty-chamber
+reference scans for each sample can be found using the metadata file.
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+                        SECTION III: Getting Help
+                        -------------------------
 
 The documentation files contained in /UM-BMID/scan-data/docs/ provide
 more information regarding using the dataset, etc.

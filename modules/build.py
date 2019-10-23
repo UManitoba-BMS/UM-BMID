@@ -21,7 +21,7 @@ __DATA_DIR = os.path.join(get_proj_path(), 'datasets\\')
 # This dict maps the headers for each info-piece contained in the
 # metadata files to the corresponding Python datatype
 dtypes_dict = {
-                'expt_num': int,
+                'n_expt': int,
                 'id': int,
                 'phant_id': str,
                 'tum_rad': float,
@@ -33,18 +33,18 @@ dtypes_dict = {
                 'adi_vol': float,
                 'fib_vol': float,
                 'adi_ref_id': int,
-                'empty_ref_id': int,
-                'date_obtained': str,
-                'session_num': int,
+                'emp_ref_id': int,
+                'date': str,
                 'n_session': int,
                 'ant_rad': float,
-                'ant_height': float,
+                'ant_z': float,
                 'fib_ang': float,
-                'phant_x': float,
-                'phant_y': float,
+                'adi_x': float,
+                'adi_y': float,
                 'fib_ref_id': int,
                 'fib_x': float,
                 'fib_y': float,
+                'tum_in_fib': bool
             }
 
 ###############################################################################
@@ -91,6 +91,14 @@ def import_metadata(gen='one'):
 
             # Get the keys for the metadata
             metadata_keys = session_metadata[0, :]
+
+            for md_key in metadata_keys:
+
+                # Assert the metadata str is valid
+                assert md_key in dtypes_dict.keys(), \
+                    "Error: invalid metadata str %s in file %s" % (
+                        md_key, metadata_path
+                    )
 
             # For each individual scan within this expt_session
             for expt in range(1, np.size(session_metadata, axis=0)):

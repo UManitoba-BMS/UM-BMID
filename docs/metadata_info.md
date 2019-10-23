@@ -5,7 +5,7 @@ in each scan.
 
 | Metadata String | Description |
 | --------------- | ----------- |
-| expt_num | The expeirment number within that experimental session.
+| n_expt | The experiment number within that experimental session.
 | | |
 | id | The unique ID number of the experiment, with respect to the entire dataset. |
 | | |
@@ -25,21 +25,21 @@ in each scan.
 | | |
 | adi_ref_id | The unique ID of the adipose-only reference scan for the experiment.
 | | |
-| empty_ref_id | The unique ID of the empty-chamber reference scan for the experiment.
+| emp_ref_id | The unique ID of the empty-chamber reference scan for the experiment.
 | | |
-| date_obtained | The date the scan was performed (format: YEAR-MONTH-DAY)|
+| date | The date the scan was performed (format: YEAR-MONTH-DAY)|
 | | |
 | n_session | The number of the session in which the scan was performed. |
 | | |
 | ant_rad | The radial distance from the center of the imaging chamber of the SMA connection point on the antenna, measured in centimeters.
 | | |
-| ant_height | The height of the antenna, with respect to the top of the imaging chamber (where the chest wall would be), in centimeters. |
+| ant_z | The height (z-position) of the antenna, with respect to the top of the imaging chamber (where the chest wall would be), in centimeters. |
 | | |
 | fib_ang | The polar angle of rotation of the fibroglandular shell, in degrees. |
 | | |
 | phant_x | The x-position of the center of the adipose shell, with respect to the center of the imaging chamber, in centimeters. |
 | | |
-| phant-y | The y-position of the center of the adipose shell, with respect to the center of the imaging chamber, in centimeters. |
+| phant_y | The y-position of the center of the adipose shell, with respect to the center of the imaging chamber, in centimeters. |
 | | | 
 | fib_ref_id | The unique ID of a reference scan containing both adipose and fibroglandular tissue components. |
 | | |
@@ -47,4 +47,4 @@ in each scan.
 | | |
 | fib_y | The y-position of the center of the fibroglandular shell, with respect to the center of the **adipose shell**, in centimeters.|
 | | |
-| tum_in_fib | Indicates if the tumor was located inside the fibroglandular shell. If equal to 1, then the tumor was in the shell. If equal to 0, then the tmor was in the adipose shell.
+| tum_in_fib | Indicates if the tumor was located inside the fibroglandular shell. If equal to 1, then the tumor was in the shell. If equal to 0, then the tumor was in the adipose shell.
