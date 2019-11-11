@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
     our_logger = get_script_logger(__file__)
 
-    for cal_type in ['adi']:
+    for cal_type in ['emp', 'adi']:
 
         for gen in ['one', 'two']:  # For each generation of dataset
 

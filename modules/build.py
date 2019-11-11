@@ -307,7 +307,7 @@ def import_fd_cal_dataset(cal_type='emp', prune=True, gen='two', sparams='s11',
         cal_str = 'adi_ref_id'  # Set the cal_str to indicate this
 
     else:  # If using an empty-chamber calibration scan
-        cal_str = 'empty_ref_id'  # Set the cal_str to indicate this
+        cal_str = 'emp_ref_id'  # Set the cal_str to indicate this
 
     # Load the freq-domain dataset
     fd_dataset = import_fd_dataset(sparams=sparams,
