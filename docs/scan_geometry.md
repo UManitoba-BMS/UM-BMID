@@ -24,5 +24,6 @@ at https://bit.ly/UM-bmid).
 The first port antenna begins each scan at a polar angle of -130&deg; with 
 respect to this coordinate system during all gen-two scans. During 
 gen-one scans, the first port antenna began at a polar angle of -102.5&deg;.
-The second port antenna begans at a polar angle of -70&deg;, and is located
-with a +60&deg; offset with respect to the first antenna.
+The second port antenna (for gen-two scans only) begans at a polar angle
+of -70&deg;, and is located with a +60&deg; offset with respect to the
+first antenna.
