@@ -2,10 +2,11 @@
                         README - UM-BMID
 
                         Author: Tyson Reimer
-                        Date: October 21st, 2019
+                        Date: January 13, 2020
 
-The folders within this Drive contain the data that comprises the
-University of Manitoba Breast Microwave Imaging Dataset.
+The folders within this Drive (https://bit.ly/UM-bmid) contain
+the data that comprises the University of Manitoba Breast
+Microwave Imaging Dataset.
 
 The accompanying GitHub project can be found at:
 
@@ -64,17 +65,61 @@ The folder architecture is as follows:
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
-                        SECTION II: Suggested Use
-                        -------------------------
+                        SECTION II: Finding a File
+                        --------------------------
+
+If you are looking for:
+
+    Raw Data:
+        Available in the ../raw/ folders
+
+    Ready-to-use, no reference-subtraction data:
+        Available in the ../simple-clean/ folders
+
+    Ready-to-use, empty-chamber reference-subtraction:
+        Available in the ../clean/ folders - these files have the _emp
+        suffix
+
+    Ready-to-use, adipose-only phantom reference subtraction:
+        Available in the ../clean/ folders - these files have the _adi
+        suffix
+
+    Ready-to-use S11 data:
+        Available in the ../clean/ and ../simple-clean/ folders - these
+        files have s11 in their file names
+
+    Ready-to-use S21 data:
+        Available in the ../clean/ and ../simple-clean/ folders - these
+        files have s21 in their file names
+
+    Metadata:
+        Available in the ../clean/ and ../simple-clean/ folders - these
+        files contain all the above descriptors (s11, s21, _emp, _adi)
+        and contain the prefix md or metadata in their file names
+
+    Frequency-domain data:
+        Available in the ../clean/ and ../simple-clean/ folders - these
+        files in the ../clean/ folders have fd_data in their file names
+
+    Time-domain data, obtained via IDFT:
+        Available in the ../clean/ folders - these files have idft_data
+        in their file names
+
+    Time-domain data, obtained via ICZT:
+        Available in the ../clean/ folders - these files have iczt_data
+        in their file names.
+
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+
+                        SECTION III: Suggested Use
+                        --------------------------
 
 The simplest way to start using UM-BMID is to download the files in:
 
     /UM-BMID/scan-data/{gen-two, gen-one}/simple-clean/
 
-The data in gen-one is limited to 249 phantom scans, while gen-two will
-contain data from 1008 phantom scans at completion. We recommend using gen-two
-for this reason, and because of the more extensive metadata recorded for scans
-in gen-two.
+These files contain all S-parameter measurements from
 
 The data files in this folder contain the frequency-domain S-parameters
 before any reference-scan subtraction has been performed. The empty-chamber
@@ -83,8 +128,8 @@ reference scans for each sample can be found using the metadata file.
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------
 
-                        SECTION III: Getting Help
-                        -------------------------
+                        SECTION IV: Getting Help
+                        ------------------------
 
 The documentation files contained in /UM-BMID/scan-data/docs/ provide
 more information regarding using the dataset, etc.
