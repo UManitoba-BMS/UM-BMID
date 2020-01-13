@@ -2,32 +2,33 @@
 
 The University of Manitoba Breast Microwave Imaging Dataset (UM-BMID) is
 an open-access dataset available to all researchers. The dataset contains
-data from experimental scans of MRI-derived breast phantoms 
+data from experimental scans of MRI-derived breast phantoms.
 
-**Th dataset itself can be found [here](https://bit.ly/UM-bmid).** 
+**The dataset itself can be found [here](https://bit.ly/UM-bmid).** 
 The shortened link is https://bit.ly/UM-bmid (case sensitive). 
 
-The dataset is described in a submitted manuscript:
+The dataset is described in an accepted manuscript:
 
 T. Reimer, J. Krenkevich, and S. Pistorius, "An open-access experimental
 dataset for breast microwave imaging,", _2020 European Conference on
-Antennas and Propagation (EuCAP 2020)_, submitted.
+Antennas and Propagation (EuCAP 2020)_, accepted.
 
 This GitHub repository contains the code used to produce the results
 presented in that paper and supportive scripts for the UM-BMID dataset.
 
 ## Getting Started
 
+### Accessing and Downloading UM-BMID
 
-### Downloading UM-BMID
-
-The dataset itself (and accompanying documentaiton) can be found 
+The dataset itself (and accompanying documentation) can be found 
 [here](https://bit.ly/UM-bmid) (https://bit.ly/UM-bmid, case sensitive).
 
-To use the scripts contained within this repository, after downloading the top
- directory `/UM-BMID/`, extract the folders within
-this directory and place them in the `/datasets/` folder found within the top 
-directory of this repository. 
+Rather than downloading the entire dataset, we recommend finding individual
+files that interest you, and only downloading those specific files (due to the
+size of the dataset). The file `/docs/UM-BMID_README.txt` (found
+[here](https://github.com/UManitoba-BMS/UM-BMID/blob/master/docs/UM-BMID_README.txt))
+ describes the folder structure of the Google Drive and contains information
+about the individual data files.
 
 ### Prerequisites
 
@@ -63,7 +64,7 @@ pip install -r requirements.txt
 This will install all the libraries listed in the `requirements.txt` file.
 
 
-## Useage
+## Usage
 
 ### Running the Tests
 
@@ -80,23 +81,46 @@ in the project.
 
 ### Exploring the Dataset
 
-The best way to explore the dataset is to download the dataset from
-https://bit.ly/UM-bmid. The most important files for quickly exploring the
-dataset are in the `UM-BMID/scan-data/gen-one/simple-clean/` and
-`UM-BMID/scan-data/gen-two/simple-clean/` folders. These folders
-contain ready-to-use files (.pickle and .mat files). The raw S-parameter
-measurements from each scan comprise these files. No reference scan subtraction 
-was performed in the formation of these files.
+The best way to explore the dataset is to download the following files:
 
-After downloading theses folders and placing them in the `../datasets/`
-folder in your local UM-BMID project directory, use the 
-`../run/simple_data_use_ex.py`  to explore loading and using the dataset
-and corresponding metadata.
+- `UM-BMID/scan-data/gen-{one, two}/clean/idft_data_s11_emp.{mat, pickle}`
+- `UM-BMID/scan-data/gen-{one, two}/clean/md_list_s11_emp.{mat, pickle}`
 
-Two sample files for using the dataset are contained in the `/run/` folder:
-the `/run/dataUseEx.m` and `/run/data_use_ex.py` files. These files demonstrate
-how to import the clean dataset files, display the sinogram measured from
-an experimental scan, and access the metadata for that experimental scan.
+The first file contains the measured frequency-domain S<sub>11</sub> parameters
+of all scans in that generation of the dataset, after having performed 
+empty-chamber reference subtraction. The second file contains the metadata
+for each of these scans.
+
+Alternatively, to use data **without** any reference-subtraction, 
+download the files:
+
+- `UM-BMID/scan-data/gen-{one, two}/simple-clean/{python, matlab}-data/fd_data_gen_{one, two}_s11.{pickle, mat}`
+- `UM-BMID/scan-data/gen-{one, two}/simple-clean/{python, matlab}-data/metadata_gen_{one, two}.{pickle, mat}`
+
+These files contain the frequency-domain S<sub>11</sub> parameters of all scans,
+including empty-chamber reference scans. 
+
+### Data Use Examples
+
+An example demonstrating usage of the simple-data files is described here. 
+To begin, download the files:
+
+- `UM-BMID/scan-data/gen-two/simple-clean/python-data/fd_data_gen_two_s11.pickle`
+- `UM-BMID/scan-data/gen-two/simple-clean/python-data/metadata_gen_two.pickle`
+
+and place them in your local UM-BMID repository under the folder:
+
+- `UM-BMID/scan-data/gen-two/simple-clean/python-data/`
+
+After downloading the files and placing them in the folder in your local
+UM-BMID project directory, use the `../run/simple_data_use_ex.py` file to
+explore loading and using the dataset corresponding metadata.
+
+Two sample files for using the **clean** dataset files are contained
+in the `/run/` folder: the `/run/dataUseEx.m` and `/run/data_use_ex.py` files.
+These files demonstrate how to import the clean dataset files, display
+the sinogram measured from an experimental scan, and access the metadata for
+that experimental scan.
 
 More information can be found in the `README.md` within the `/run/` folder.  
 
