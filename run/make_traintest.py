@@ -6,10 +6,10 @@ October 12th, 2019
 
 import os
 
-from modules import get_proj_path, verify_path, get_script_logger
-from modules.loadsave import save_pickle, save_mat, load_pickle
-from modules.content import get_class_labels
-from modules.ai.traintestsplit import split_to_train_test
+from umbmid import get_proj_path, verify_path, get_script_logger
+from umbmid.loadsave import save_pickle, save_mat, load_pickle
+from umbmid.content import get_class_labels
+from umbmid.ai.traintestsplit import split_to_train_test
 
 ###############################################################################
 

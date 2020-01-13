@@ -8,9 +8,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-from modules import get_proj_path, verify_path, get_script_logger
-from modules.loadsave import load_pickle
-from modules.content import report_metadata_content
+from umbmid import get_proj_path, verify_path, get_script_logger
+from umbmid.loadsave import load_pickle
+from umbmid.content import report_metadata_content
 
 ###############################################################################
 

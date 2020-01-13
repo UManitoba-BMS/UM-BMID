@@ -8,9 +8,9 @@ import os
 import numpy as np
 import pandas as pd
 
-from modules import null_logger, get_proj_path
-from modules.loadsave import load_fd_data
-from modules.sigproc import iczt
+from umbmid import null_logger, get_proj_path
+from umbmid.loadsave import load_fd_data
+from umbmid.sigproc import iczt
 
 ###############################################################################
 

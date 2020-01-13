@@ -8,9 +8,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
-from modules import get_proj_path, verify_path, get_script_logger
-from modules.sigproc import iczt
-from modules.loadsave import load_pickle
+from umbmid import get_proj_path, verify_path, get_script_logger
+from umbmid.sigproc import iczt
+from umbmid.loadsave import load_pickle
 
 ###############################################################################
 

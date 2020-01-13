@@ -8,10 +8,10 @@ import os
 import numpy as np
 from sklearn.metrics import roc_auc_score
 
-from modules import get_proj_path, get_script_logger
-from modules.loadsave import load_pickle
-from modules.ai.logreg import LogisticRegression
-from modules.ai.preprocessing import normalize_samples
+from umbmid import get_proj_path, get_script_logger
+from umbmid.loadsave import load_pickle
+from umbmid.ai.logreg import LogisticRegression
+from umbmid.ai.preprocessing import normalize_samples
 
 ###############################################################################
 

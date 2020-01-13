@@ -7,7 +7,7 @@ October 2nd, 2019
 import os
 import matplotlib.pyplot as plt
 
-from modules import get_proj_path, verify_path
+from umbmid import get_proj_path, verify_path
 
 ###############################################################################
 

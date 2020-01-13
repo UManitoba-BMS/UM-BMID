@@ -6,8 +6,8 @@ July 19th, 2019
 
 import numpy as np
 
-from modules import null_logger
-from modules.build import get_info_piece_list
+from umbmid import null_logger
+from umbmid.build import get_info_piece_list
 
 ###############################################################################
 

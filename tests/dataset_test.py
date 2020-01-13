@@ -6,7 +6,7 @@ October 15th, 2019
 
 import os
 
-from modules import get_proj_path, get_script_logger
+from umbmid import get_proj_path, get_script_logger
 
 ###############################################################################
 

@@ -7,9 +7,10 @@ October 21st, 2019
 import os
 import numpy as np
 
-from modules import get_proj_path, verify_path, get_script_logger
-from modules.loadsave import save_pickle, save_mat
-from modules.build import import_fd_dataset, import_metadata
+from umbmid import get_proj_path, verify_path, get_script_logger
+from umbmid.loadsave import save_pickle, save_mat
+from umbmid.build import (import_fd_dataset, import_metadata,
+                          import_metadata_df)
 
 ###############################################################################
 
@@ -40,7 +41,7 @@ if __name__ == '__main__':
 
         # The output path for this generation of dataset
         output_here = os.path.join(__OUTPUT_DIR,
-                                   'gen-%s/clean/' % gen)
+                                   'gen-%s/simple-clean/' % gen)
         verify_path(output_here)
 
         # Get the list of the possible sparams for this gen
@@ -56,8 +57,10 @@ if __name__ == '__main__':
                                         sparams=sparam,
                                         logger=logger)
 
-            # Import the metadata
+            # Import the metadata as a list of dicts and as
+            # pandas dataframe
             metadata = import_metadata(gen=gen)
+            metadata_df = import_metadata_df(gen=gen)
 
             logger.info('\t\t\tFD data of num samples:\t%d'
                         % np.size(fd_data, axis=0))
@@ -65,16 +68,20 @@ if __name__ == '__main__':
                         % len(metadata))
 
             # Save the frequency-domain and metadata to .pickle files
-            save_pickle(fd_data, os.path.join(output_here,
+            save_pickle(fd_data, os.path.join(output_here,'python-data',
                                               'fd_data_gen_%s_%s.pickle'
                                               % (gen, sparam)))
-            save_pickle(metadata, os.path.join(output_here,
+            save_pickle(metadata, os.path.join(output_here, 'python-data/',
                                                'metadata_gen_%s.pickle'
                                                % gen))
+            save_pickle(metadata_df, os.path.join(output_here, 'python-data/',
+                                                  'metadata_df_gen_%s.pickle'
+                                                  % gen))
 
             # Save the frequency-domain and metadata to .mat files
             save_mat(fd_data, 'fd_data',
-                     os.path.join(output_here, 'fd_data_gen_%s_%s.mat'
-                                  % (gen, sparam)))
+                     os.path.join(output_here, 'matlab-data/',
+                                  'fd_data_gen_%s_%s.mat' % (gen, sparam)))
             save_mat(metadata, 'metadata',
-                     os.path.join(output_here, 'metadata_gen_%s.mat' % gen))
+                     os.path.join(output_here, 'matlab-data/',
+                                  'metadata_gen_%s.mat' % gen))

@@ -7,10 +7,10 @@ October 13th, 2019
 import os
 import numpy as np
 
-from modules import get_proj_path, verify_path, get_script_logger, null_logger
-from modules.loadsave import save_pickle, save_mat
-from modules.build import import_fd_cal_dataset
-from modules.sigproc import iczt
+from umbmid import get_proj_path, verify_path, get_script_logger, null_logger
+from umbmid.loadsave import save_pickle, save_mat
+from umbmid.build import import_fd_cal_dataset
+from umbmid.sigproc import iczt
 
 ###############################################################################
 

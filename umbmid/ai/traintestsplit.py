@@ -6,8 +6,8 @@ July 22nd, 2019
 
 import numpy as np
 
-from modules import null_logger
-from modules.ai.preprocessing import shuffle_arrays
+from umbmid import null_logger
+from umbmid.ai.preprocessing import shuffle_arrays
 
 ########################################################################
 
