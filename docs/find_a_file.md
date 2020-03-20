@@ -25,6 +25,3 @@ UM-BMID Google Drive (https://bit.ly/UM-bmid).
 | | |
 | Frequency-domain data | Available in the ../clean/ and ../simple-clean/ folders - these files in the ../clean/ folders have fd_data in their file names |
 | | |
-| Time-domain data, obtained via IDFT | Available in the ../clean/ folders - these files have idft_data in their file names |
-| | |
-|Time-domain data, obtained via ICZT | Available in the ../clean/ folders - these files have iczt_data in their file names.|

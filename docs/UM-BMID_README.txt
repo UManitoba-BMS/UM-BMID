@@ -42,9 +42,7 @@ The folder architecture is as follows:
 
         ../clean/
             Contains clean .pickle and .mat files of the scan data,
-            in the frequency domain, in the time-domain after conversion
-            via the inverse discrete Fourier transform, and in the time
-            domain after conversion via the inverse chirp z-transform.
+            in the frequency domain after subtracting a reference scan.
             **NOTE: The files in this folder have had a reference scan
                     subtracted, either an empty-chamber reference,
                     indicated by the _emp suffix in the file name,
@@ -57,8 +55,9 @@ The folder architecture is as follows:
             More info available in /UM-BMID/scan-data/docs/raw_files.txt.
 
         ../simple-clean/
-            Contains ALL data from the scans, in the frequency-domain,
-            and the corresponding metadata.
+            Contains ALL data from the scans (including reference
+            scans), in the frequency-domain, and the corresponding
+            metadata.
             **NOTE: No reference-scan subtraction has been performed
                     for the data contained here.
 
@@ -96,18 +95,6 @@ If you are looking for:
         Available in the ../clean/ and ../simple-clean/ folders - these
         files contain all the above descriptors (s11, s21, _emp, _adi)
         and contain the prefix md or metadata in their file names
-
-    Frequency-domain data:
-        Available in the ../clean/ and ../simple-clean/ folders - these
-        files in the ../clean/ folders have fd_data in their file names
-
-    Time-domain data, obtained via IDFT:
-        Available in the ../clean/ folders - these files have idft_data
-        in their file names
-
-    Time-domain data, obtained via ICZT:
-        Available in the ../clean/ folders - these files have iczt_data
-        in their file names.
 
 -------------------------------------------------------------------------------
 -------------------------------------------------------------------------------

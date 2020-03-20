@@ -76,49 +76,6 @@ def make_clean_files(gen='one', cal_type='emp', sparams='s11',
                 os.path.join(this_output_dir, 'md_list_%s_%s.mat'
                              % (sparams, cal_type)))
 
-    logger.info('\tCreating IDFT data...')
-
-    # Convert the data to the time-domain
-    idft_data = np.fft.ifft(fd_data, axis=1)
-
-    logger.info('\tIDFT data complete. Saving to files...')
-
-    # Save the IDFT-obtained time-domain data
-    save_pickle(idft_data,
-                os.path.join(this_output_dir, 'idft_data_%s_%s.pickle' %
-                             (sparams, cal_type)))
-    save_mat(idft_data, 'idft_data_%s' % sparams,
-             os.path.join(this_output_dir, 'idft_data_%s_%s.mat'
-                          % (sparams, cal_type)))
-
-    logger.info('\tSave complete.')
-    logger.info('\tCreating ICZT data...')
-
-    # Init array for storing the ICZT-obtained data
-    iczt_data = np.zeros([np.size(fd_data, axis=0),
-                          1024, np.size(fd_data, axis=2)],
-                         dtype=complex)
-
-    # Convert this sample to the time-domain via the ICZT
-    for sample_idx in range(np.size(fd_data, axis=0)):
-        logger.info('\t\tWorking on sample [%3d / %3d]'
-                    % (sample_idx + 1, np.size(fd_data, axis=0)))
-
-        # Convert this sample to the time domain via the ICZT
-        iczt_data[sample_idx, :, :] = iczt(fd_data[sample_idx, :, :], ini_t=0,
-                                           fin_t=6e-9, n_time_pts=1024,
-                                           ini_f=1e9, fin_f=8e9)
-
-    logger.info('\tCreation complete. Saving to files...')
-
-    # Save the ICZT data files
-    save_pickle(iczt_data,
-                os.path.join(this_output_dir, 'iczt_data_%s_%s.pickle' %
-                             (sparams, cal_type)))
-    save_mat(iczt_data, 'iczt_data_%s' % sparams,
-             os.path.join(this_output_dir, 'iczt_data_%s_%s.mat'
-                          % (sparams, cal_type)))
-
     logger.info('\tComplete saving clean data files.')
 
 
