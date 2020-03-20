@@ -83,7 +83,7 @@ in the project.
 
 The best way to explore the dataset is to download the following files:
 
-- `UM-BMID/scan-data/gen-{one, two}/clean/idft_data_s11_emp.{mat, pickle}`
+- `UM-BMID/scan-data/gen-{one, two}/clean/fd_data_s11_emp.{mat, pickle}`
 - `UM-BMID/scan-data/gen-{one, two}/clean/md_list_s11_emp.{mat, pickle}`
 
 The first file contains the measured frequency-domain S<sub>11</sub> parameters
