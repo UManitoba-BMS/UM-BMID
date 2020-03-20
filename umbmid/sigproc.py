@@ -84,6 +84,10 @@ def iczt(fd_data, ini_t, fin_t, n_time_pts, ini_f, fin_f):
         # Find the ICZT
         td_data = np.sum(fd_data[:, None] * zs_power, axis=0) / n_freqs
 
+    # Apply phase compensation
+    td_data = phase_compensate(td_data, ini_f=ini_f, ini_t=ini_t, fin_t=fin_t,
+                               n_time_pts=n_time_pts)
+
     return td_data
 
 
@@ -143,3 +147,36 @@ def get_scan_times(ini_f, fin_f, n_freqs):
     scan_times = np.linspace(0, n_freqs * time_step, n_freqs)
 
     return scan_times
+
+
+def phase_compensate(td_data, ini_f, ini_t, fin_t, n_time_pts):
+    """Applies phase compensation to TD signals obtained with the ICZT
+
+    Parameters
+    ----------
+    td_data : array_like
+        Time-domain signals obtained via the ICZT
+    ini_f : float
+        Initial frequency used in the scan, in Hz
+    ini_t : float
+        Initial time point of the td_data, in seconds
+    fin_t : float
+        Final time point of the td_data, in seconds
+    n_time_pts : int
+        Number of time-points used to create the td_data
+
+    Returns
+    -------
+    compensated_td_data : array_like
+        Time-domain signals after phase compensation
+    """
+
+    # Create vector of the time points used to represent the td_data
+    time_vec = np.linspace(ini_t, fin_t, n_time_pts)
+
+    # Phase correction factor
+    phase_fac = np.exp(1j * 2 * np.pi * ini_f * time_vec)
+
+    compensated_td_data = td_data * phase_fac  # Apply to measured data
+
+    return compensated_td_data
