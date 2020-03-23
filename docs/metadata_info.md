@@ -37,9 +37,9 @@ in each scan.
 | | |
 | fib_ang | The polar angle of rotation of the fibroglandular shell, in degrees. The 0&deg; position for each shell is displayed in images in the `UM-BMID/scan-data/docs/` folder on the Google Drive. Positive angles indicate clockwise rotation of the shell.| 
 | | |
-| phant_x | The x-position of the center of the adipose shell, with respect to the center of the imaging chamber, in centimeters. |
+| adi_x | The x-position of the center of the adipose shell, with respect to the center of the imaging chamber, in centimeters. |
 | | |
-| phant_y | The y-position of the center of the adipose shell, with respect to the center of the imaging chamber, in centimeters. |
+| adi_y | The y-position of the center of the adipose shell, with respect to the center of the imaging chamber, in centimeters. |
 | | | 
 | fib_ref_id | The unique ID of a reference scan containing both adipose and fibroglandular tissue components. |
 | | |
