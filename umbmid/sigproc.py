@@ -171,12 +171,22 @@ def phase_compensate(td_data, ini_f, ini_t, fin_t, n_time_pts):
         Time-domain signals after phase compensation
     """
 
+    n_dim = len(np.shape(td_data))
+
+    assert n_dim in [1, 2], "td_data must be 1D or 2D arr"
+
     # Create vector of the time points used to represent the td_data
     time_vec = np.linspace(ini_t, fin_t, n_time_pts)
 
     # Phase correction factor
     phase_fac = np.exp(1j * 2 * np.pi * ini_f * time_vec)
 
-    compensated_td_data = td_data * phase_fac  # Apply to measured data
+    if n_dim == 1:  # If td_data was 1D arr
+
+        compensated_td_data = td_data * phase_fac  # Apply to measured data
+
+    else:  # If td_data was 2D arr
+
+        compensated_td_data = td_data * phase_fac[:, None]
 
     return compensated_td_data
