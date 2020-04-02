@@ -97,6 +97,9 @@ def get_script_logger(script_path, level=logging.DEBUG):
     # DEBUG           10
     # NOTSET          0
 
+    # Verify that the log dir exists
+    verify_path(os.path.join(get_proj_path(), 'output/logs/'))
+
     # Find the name of the script that will be used
     script_name = os.path.splitext(os.path.basename(script_path))[0]
 
