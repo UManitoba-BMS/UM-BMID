@@ -169,12 +169,12 @@ if __name__ == '__main__':
 
         # If the scan corresponding to this index was not an
         # empty-chamber scan
-        if not np.isnan(tar_md['empty_ref_id']):
+        if not np.isnan(tar_md['emp_ref_id']):
 
             # Find the index of the experiment with the ID that
             # corresponds to the empty reference scan for this
             # target scan
-            emp_idx = unique_ids.index(tar_md['empty_ref_id'])
+            emp_idx = unique_ids.index(tar_md['emp_ref_id'])
 
             # Get the frequency-domain S11 measurements for the
             # target scan and the empty-chamber reference
