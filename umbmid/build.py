@@ -44,7 +44,7 @@ dtypes_dict = {
                 'fib_ref_id': int,
                 'fib_x': float,
                 'fib_y': float,
-                'tum_in_fib': bool
+                'tum_in_fib': int
             }
 
 ###############################################################################
