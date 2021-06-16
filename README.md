@@ -10,8 +10,9 @@ The shortened link is https://bit.ly/UM-bmid (case sensitive).
 The dataset is described in an accepted manuscript:
 
 T. Reimer, J. Krenkevich, and S. Pistorius, "An open-access experimental
-dataset for breast microwave imaging,", _2020 European Conference on
-Antennas and Propagation (EuCAP 2020)_, accepted.
+dataset for breast microwave imaging,", in _2020 European Conference on
+Antennas and Propagation (EuCAP 2020)_, Copenhagen, Denmark, Mar. 2020,
+pp. 1-5, doi:10.23919/EuCAP48036.2020.9135659.
 
 This GitHub repository contains the code used to produce the results
 presented in that paper and supportive scripts for the UM-BMID dataset.
