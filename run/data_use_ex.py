@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from umbmid import get_proj_path, verify_path, get_script_logger
 from umbmid.loadsave import load_pickle
 from umbmid.content import report_metadata_content
+from umbmid.sigproc import iczt
 
 ###############################################################################
 
@@ -22,10 +23,6 @@ verify_path(__OUTPUT_DIR)
 
 # Define the generation of data
 gen = 'one'
-
-# Define the type of data, must be in ['iczt', 'idft', 'fd']
-# NOTE: for plotting the sinogram, 'iczt' is expected
-data_type = 'iczt'
 
 # Define the type of s-params to plot, must be in ['s11', 's21']
 sparam = 's11'
@@ -40,8 +37,8 @@ cal_type = 'emp'
 this_data_dir = os.path.join(__DATA_DIR, 'gen-%s/clean/' % gen)
 
 # Load the scan data
-scan_data = load_pickle(os.path.join(this_data_dir, '%s_data_%s_%s.pickle'
-                                     % (data_type, sparam, cal_type)))
+scan_data = load_pickle(os.path.join(this_data_dir, 'fd_data_%s_%s.pickle'
+                                     % (sparam, cal_type)))
 
 ###############################################################################
 
@@ -58,8 +55,12 @@ report_metadata_content(metadata, logger)
 # The index for the scan that will be plotted
 sample_idx = 0
 
+# Convert the frequency domain data to the time domain
+data_to_plot = iczt(fd_data=scan_data[0, :, :],
+                    ini_f=1e9, fin_f=8e9, ini_t=0, fin_t=6e-9,
+                    n_time_pts=1024)
 # Take the abs-value and get the data that will be plotted
-data_to_plot = np.abs(scan_data[0, :, :])
+data_to_plot = np.abs(data_to_plot)
 
 # Plot the data
 plt.figure()
@@ -73,8 +74,8 @@ plt.colorbar()
 plt.show()
 
 # Save the figure, can comment-out to not-save
-plt.savefig(os.path.join(__OUTPUT_DIR, 'PythonExampleSinogram.png'),
-            dpi=300)
+# plt.savefig(os.path.join(__OUTPUT_DIR, 'PythonExampleSinogram.png'),
+#             dpi=300)
 
 ###############################################################################
 

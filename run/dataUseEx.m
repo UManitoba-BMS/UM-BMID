@@ -11,20 +11,16 @@ clc;
 % The generation of data to use, must be in ['one', 'two']
 gen = 'one';
 
-% The type of data to use, must be in ['iczt', 'idft', 'fd']
-% NOTE: 'iczt' is the type that is expected for the plot below
-dataType = 'iczt';
-
 % The type of sparams to use, must be in ['s11', 's21']
 sparam = 's11';
 
 % The reference calibration type to use, must be in ['emp', 'adi']
-calType = 'emp';
+calType = 'adi';
 
 %% Load the scan data to an array variable
 
 % Get the file name to load
-fileName = sprintf('%s_data_%s_%s.mat', dataType, sparam, calType);
+fileName = sprintf('fd_data_%s_%s.mat', sparam, calType);
 
 % Get the path to the file's parent directory
 fileDir = sprintf('datasets/gen-%s/clean/', gen);
@@ -55,13 +51,12 @@ metadata = getfield(metadata, metadataFieldName{1});
 sampleIdx = 1;  % The index for the sample that will be plotted
 
 % Take the abs-value and reshape for imshow
-dataToPlot = abs(scanData(sampleIdx, :, :));
-dataToPlot = reshape(dataToPlot, [size(dataToPlot, 2), ...
-                                    size(dataToPlot, 3)]);
+dataToPlot = squeeze(scanData(sampleIdx, :, :));
+dataToPlot = iczt(dataToPlot, -0.5e-9, 6e-9, 1024, 1e9, 8e9); 
 
 % Make the figure
 figure;
-imagesc(dataToPlot, 'y', linspace(0, 6, 1024));
+imagesc(abs(dataToPlot), 'y', linspace(0, 6, 1024));
 title('Sample Sinogram');
 xlabel('Antenna Position');
 ylabel('Time of Response (ns)');

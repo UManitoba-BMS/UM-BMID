@@ -45,7 +45,7 @@ expThetaNaught = exp(-1j * thetaNaught);
 expPhiNaught = exp(-1j * phiNaught);
 
 % Create dummy var to faciliate vectorized computation
-dummyVec = -1 * (0 : nFreqs - 1);
+dummyVec = (0 : nFreqs - 1);
 
 if length(size(fdData)) > 1  % If the fdData is 2D 
     
@@ -53,16 +53,16 @@ if length(size(fdData)) > 1  % If the fdData is 2D
    tdData = complex(zeros([nTimePts, size(fdData, 2)]));
    
    for ii = 1 : size(fdData, 2)  % For each antenna position
-      
+
        for jj = 1 : nTimePts  % For each time point
            
           % Compute the ICZT by determining the z-value ...
-          zHere = expThetaNaught * expPhiNaught.^(ii - 1);
+          zHere = expThetaNaught * expPhiNaught.^(jj - 1);
           
           % ... and then sum over all the zs for this time point
-          zSum = sum(fdData .* zHere.^dummyVec);
+          zSum = sum(sum(fdData(:, ii) .* (zHere.^dummyVec'))) / nFreqs;
           
-          tdData(ii, jj) = zSum / nFreqs;  % Store the obtained value
+          tdData(jj, ii) = zSum;  % Store the obtained value
           
        end  % End loop over time points
    end  % End loop over antenna position
