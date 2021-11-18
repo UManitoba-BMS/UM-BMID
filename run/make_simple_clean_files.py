@@ -25,6 +25,7 @@ __DATA_DIR = os.path.join(get_proj_path(), 'datasets/')
 possible_sparams = {
     'one': ['s11'],
     'two': ['s11', 's21'],
+    'three': ['s11', 's21'],
 }
 
 ###############################################################################
@@ -35,7 +36,7 @@ if __name__ == '__main__':
 
     logger.info('Beginning...Construction of All Data Clean Files...')
 
-    for gen in ['one', 'two']:
+    for gen in ['three']:
 
         logger.info('\tWorking on gen-%s...' % gen)
 
@@ -66,6 +67,9 @@ if __name__ == '__main__':
                         % np.size(fd_data, axis=0))
             logger.info('\t\t\tMetadata of num samples:\t%d'
                         % len(metadata))
+
+            verify_path(os.path.join(output_here, 'python-data/'))
+            verify_path(os.path.join(output_here, 'matlab-data/'))
 
             # Save the frequency-domain and metadata to .pickle files
             save_pickle(fd_data, os.path.join(output_here,'python-data',

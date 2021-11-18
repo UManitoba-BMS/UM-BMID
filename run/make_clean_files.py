@@ -38,8 +38,8 @@ def make_clean_files(gen='one', cal_type='emp', sparams='s11',
         A logger for logging progress
     """
 
-    assert gen in ['one', 'two'], \
-        "Error: gen must be in ['one', 'two']"
+    assert gen in ['one', 'two', 'three'], \
+        "Error: gen must be in ['one', 'two', 'three']"
 
     assert sparams in ['s11', 's21'], \
         "Error: sparams must be in ['s11', 's21']"
@@ -86,10 +86,11 @@ if __name__ == '__main__':
     our_logger = get_script_logger(__file__)
 
     for cal_type in ['emp', 'adi']:
+    # for cal_type in ['adi']:
 
-        for gen in ['one', 'two']:  # For each generation of dataset
+        for gen in ['three']:  # For each generation of dataset
 
-            if gen in ['two']:  # If the second generation
+            if gen in ['two', 'three']:  # If the second generation
 
                 # S11 and S21 are possible sparams
                 possible_sparams = ['s11', 's21']

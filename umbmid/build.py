@@ -44,7 +44,8 @@ dtypes_dict = {
                 'fib_ref_id': int,
                 'fib_x': float,
                 'fib_y': float,
-                'tum_in_fib': int
+                'tum_in_fib': int,
+                'tum_diam': float,
             }
 
 ###############################################################################
@@ -67,8 +68,8 @@ def import_metadata(gen='one'):
         List of the metadata dict for each expt
     """
 
-    assert gen in ['one', 'two'], \
-        "Error: gen must be in ['one', 'two']"
+    assert gen in ['one', 'two', 'three'], \
+        "Error: gen must be in ['one', 'two', 'three']"
 
     this_data_dir = os.path.join(__DATA_DIR, 'gen-%s/raw/' % gen)
 
@@ -174,8 +175,8 @@ def import_fd_dataset(gen='one', sparams='s11', logger=null_logger):
     assert sparams in ['s11', 's21'], \
         "Error: sparams must be in ['s11', 's21']"
 
-    assert gen in ['one', 'two'], \
-        "Error: gen must be in ['one', 'two']"
+    assert gen in ['one', 'two', 'three'], \
+        "Error: gen must be in ['one', 'two', 'three']"
 
     this_data_dir = os.path.join(__DATA_DIR, 'gen-%s/raw/' % gen)
 
@@ -296,8 +297,8 @@ def import_fd_cal_dataset(cal_type='emp', prune=True, gen='two', sparams='s11',
     assert cal_type in ['emp', 'adi'], \
         "Error: cal_type must be in ['emp', 'adi']"
 
-    assert gen in ['one', 'two'], \
-        "Error: gen must be in ['one', 'two']"
+    assert gen in ['one', 'two', 'three'], \
+        "Error: gen must be in ['one', 'two', 'three']"
 
     assert sparams in ['s11', 's21'], \
         "Error: sparams must be in ['s11', 's21']"
@@ -346,7 +347,6 @@ def import_fd_cal_dataset(cal_type='emp', prune=True, gen='two', sparams='s11',
 
             assert ref_idx >= 0, ('Error: no ref found for unique ID %d' %
                                   this_expt_metadata['id'])
-
             # Get the reference expt frequency-domain data for this
             # expt_idx
             ref_expt = fd_dataset[ref_idx, :, :]
@@ -522,7 +522,7 @@ def import_metadata_df(gen='one'):
         The metadata of the experiments, returned as a pandas dataframe.
     """
 
-    assert gen in ['one', 'two'], \
+    assert gen in ['one', 'two', 'three'], \
         "Error: gen must be in ['one', 'two']"
 
     # Load the metadata as a list of dicts
