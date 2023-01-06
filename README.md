@@ -7,7 +7,8 @@ data from experimental scans of MRI-derived breast phantoms.
 **The dataset itself can be found [here](https://bit.ly/UM-bmid).** 
 The shortened link is https://bit.ly/UM-bmid (case sensitive). 
 
-The dataset is described in an accepted manuscript:
+The dataset is described in this article, and this article should be
+cited in any work utilizing the dataset:
 
 T. Reimer, J. Krenkevich, and S. Pistorius, "An open-access experimental
 dataset for breast microwave imaging,", in _2020 European Conference on
